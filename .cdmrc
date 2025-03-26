@@ -1,4 +1,9 @@
-{
-  "tabs": ["README.md", "test.ipynb"],
-  "onCreateCommand": "pip install jupyterlab && jupyter lab test.ipynb --no-browser --port=1337 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
-}
+@echo off
+
+REM Open files in VS Code editor
+start code README.md
+start code test.ipynb
+
+REM Install JupyterLab and run it on port 1337 (to match Codedamn port mapping)
+pip install jupyterlab
+jupyter lab test.ipynb --no-browser --port=1337 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''
