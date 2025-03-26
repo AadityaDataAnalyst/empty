@@ -1,9 +1,7 @@
 @echo off
 
-REM Open files in VS Code editor
-start code README.md
-start code test.ipynb
-
-REM Install JupyterLab and run it on port 1337 (to match Codedamn port mapping)
+REM Install JupyterLab if not already installed
 pip install jupyterlab
-jupyter lab test.ipynb --no-browser --port=1337 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''
+
+REM Start Jupyter Lab with test.ipynb on port 1337 (Codedamn maps this)
+start jupyter lab test.ipynb --no-browser --port=1337 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''
