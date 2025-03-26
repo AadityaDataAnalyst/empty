@@ -1,19 +1,17 @@
-# Open only the notebook in the editor
 tabs:
   - test.ipynb
 
-# Launch Jupyter Notebook server on port 1337 (mapped to playground URL)
 terminals:
-  - pip install notebook
-  - jupyter notebook test.ipynb --no-browser --port=1337 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''
+  - |
+    pip install notebook --user
+    export PATH="$HOME/.local/bin:$PATH"
+    jupyter notebook test.ipynb --no-browser --port=1337 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''
 
-# Configure Run button to only work for .py files
 run-button: |
   if [[ "$$file" == *.py ]]; then
     python3 "$$file"
   else
-    echo "❌ This file type cannot be executed directly. Open test.ipynb at https://whole-swing.run-code.com to run Python cells."
+    echo "❌ Run button only works for .py files. Open test.ipynb at https://whole-swing.run-code.com to run the notebook."
   fi
 
-# Show clickable browser link to Jupyter interface
 browser-link: https://whole-swing.run-code.com
