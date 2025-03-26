@@ -1,5 +1,4 @@
 {
-  @echo off
   "tabs": ["README.md", "test.ipynb"],
   "onCreateCommand": "pip install jupyterlab && jupyter lab test.ipynb --no-browser --port=1337 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
 }
