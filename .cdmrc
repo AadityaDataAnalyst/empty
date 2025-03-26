@@ -1,11 +1,20 @@
-# terminals
+# Open initial files in tabs
+tabs:
+  - README.md
+  - test.ipynb
+
+# Start Jupyter Notebook in the background on port 1337 (Codedamn-compatible)
 terminals:
-    [
-        'cd client && yarn && yarn start',
-        'cd server && yarn && yarn dev',
-        'echo "We''re ready"',
-    ]
-# other config
-tabs: ['README.md']
-run-button: clear && node $$file
-browser-link: https://wikipedia.org
+  - pip install notebook
+  - jupyter notebook test.ipynb --no-browser --port=1337 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''
+
+# Optional: Only use run-button for Python (.py) files
+run-button: |
+  if [[ "$$file" == *.py ]]; then
+    python3 "$$file"
+  else
+    echo "❌ Run button only works for .py files. Open test.ipynb at https://whole-swing.run-code.com to run notebooks."
+  fi
+
+# Optionally provide a helpful browser link
+browser-link: https://whole-swing.run-code.com
