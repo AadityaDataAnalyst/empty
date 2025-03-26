@@ -1,7 +1,2 @@
 @echo off
-
-REM Install JupyterLab if not already installed
-pip install jupyterlab
-
-REM Start Jupyter Lab with test.ipynb on port 1337 (Codedamn maps this)
-start jupyter lab test.ipynb --no-browser --port=1337 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''
+start code README.md
