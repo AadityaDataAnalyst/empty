@@ -1,14 +1,11 @@
-# Launch terminal commands
+# Launch terminal commands 
 terminals:
   [
-    # Step 1: Create test.ipynb if it doesn't exist
     "echo '{\"cells\":[{\"cell_type\":\"code\",\"metadata\":{},\"source\":[\"# write code here\"],\"outputs\":[]}],\"metadata\":{},\"nbformat\":4,\"nbformat_minor\":5}' > test.ipynb || true",
-    
-    # Step 2: Export path, install notebook if not installed, launch in classic Notebook mode
-    "export PATH=\"$HOME/.local/bin:$PATH\" && (command -v jupyter >/dev/null || pip install --user notebook) && jupyter notebook test.ipynb --no-browser --NotebookApp.token='' --NotebookApp.password='' --port=1337 --ip=0.0.0.0 &"
+    "export PATH=\"$HOME/.local/bin:$PATH\" && pip install --user notebook && jupyter notebook test.ipynb --no-browser --port=1337 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
   ]
 
-# Open test.ipynb (shown in Codedamn sidebar)
+# Automatically open test.ipynb (this helps in Codedamn sidebar)
 tabs: ["test.ipynb"]
 
 # Run button (only for .py files)
@@ -17,3 +14,4 @@ run-button: |
     python3 "$$file"
   else
     echo "❌ Run button only works for .py files. Open test.ipynb at https://fought-pull.run-code.org to run the notebook."
+  end
