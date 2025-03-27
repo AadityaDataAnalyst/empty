@@ -5,7 +5,8 @@ terminals:
     "echo '{\"cells\":[{\"cell_type\":\"code\",\"metadata\":{},\"source\":[\"# write code here\"],\"outputs\":[]}],\"metadata\":{},\"nbformat\":4,\"nbformat_minor\":5}' > test.ipynb || true",
 
     # Step 2: Launch Jupyter Notebook quickly and open in browser
-    "export PATH=\"$HOME/.local/bin:$PATH\" && jupyter notebook test.ipynb --no-browser --port=1337 --ip=127.0.0.1 --NotebookApp.token='' --NotebookApp.password='' & sleep 5 && xdg-open http://127.0.0.1:1337/test.ipynb || open http://127.0.0.1:1337/test.ipynb"
+    export PATH="$HOME/.local/bin:$PATH"
+    jupyter notebook test.ipynb --no-browser --port=1337 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''
   ]
 
 # Automatically open test.ipynb (this helps in Codedamn sidebar)
