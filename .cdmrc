@@ -1,12 +1,8 @@
 # Launch terminal commands
 terminals:
   [
-    # Step 1: Create a minimal notebook if it doesn't exist
     "echo '{\"cells\":[{\"cell_type\":\"code\",\"metadata\":{},\"source\":[\"# write code here\"],\"outputs\":[]}],\"metadata\":{},\"nbformat\":4,\"nbformat_minor\":5}' > test.ipynb || true",
-
-    # Step 2: Launch Jupyter Notebook quickly and open in browser
-    export PATH="$HOME/.local/bin:$PATH"
-    jupyter notebook test.ipynb --no-browser --port=1337 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''
+    "export PATH=\"$HOME/.local/bin:$PATH\" && pip install --user notebook && jupyter notebook test.ipynb --no-browser --port=1337 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
   ]
 
 # Automatically open test.ipynb (this helps in Codedamn sidebar)
