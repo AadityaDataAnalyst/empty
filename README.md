@@ -1,3 +1,3 @@
 ## Hello world
 
-Just a simple example
+This is the learnbay coding lab.
